@@ -15,7 +15,7 @@
           <rect width="3" height="20" fill="#9E9E9E" :class="{active_svg: !stopwatch.toogle}"/>
           </svg>
         </button>
-        <button id="stop" @click="stop(stopwatch.id)">
+        <button id="stop" @click="reset(stopwatch.id)">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="20" height="20" fill="#9E9E9E" :class="{active_svg: !stopwatch.toogle}"/>
           </svg>
@@ -62,7 +62,7 @@ methods: {
               stopwatch.hour++;
             }
           }
-        }, 1);
+        }, 1000);
       }
     }
   },
@@ -76,7 +76,7 @@ methods: {
     }
   },
 
-  stop (id) {
+  reset (id) {
     for (let stopwatch of this.stopwatches) {
       if (stopwatch.id === id) {
         stopwatch.toogle = true;
